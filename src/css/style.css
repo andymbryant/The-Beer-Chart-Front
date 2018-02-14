@@ -1,0 +1,197 @@
+:root {
+    --ale-dark: #fda810;
+    --ale-light: #fecb70;
+    --lager-dark: #b10914;
+    --lager-light: #d88489;
+}
+
+#main {
+
+}
+
+main {
+    font-family: 'Neuton', serif;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-width: 650px;
+}
+
+.ale-view, .lager-view {
+    width: 100%;
+    text-align: center;
+    padding: .5%;
+}
+
+.ale-view {
+    background: grey;
+    min-height: 450px;
+    height: 60%;
+}
+
+.lager-view {
+    background: #d3d3d3;
+    height: 40%;
+}
+
+.type-ale, .type-lager {
+    width: 20%;
+    border: black 1px solid;
+    height: 200px;
+    color: white;
+    margin: .5%;
+    display: inline-block;
+    vertical-align: top;
+    min-width: 150px;
+}
+
+.type-ale {
+    background: var(--ale-light);
+}
+
+.type-lager {
+    background: var(--lager-light);
+}
+
+.type-header-ale, .type-header-lager {
+    padding: .6rem 0;
+    border-bottom: black 1px solid;
+}
+
+.type-header-ale {
+    background: var(--ale-dark);
+}
+
+.type-header-lager {
+    background: var(--lager-dark);
+}
+
+.type-title {
+    margin: 0;
+}
+
+.token-ale, .token-lager {
+    width: 40%;
+    padding: .4rem 0;
+    margin: .5rem;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.token-ale {
+    background: var(--ale-dark);
+}
+
+.token-lager {
+    background: var(--lager-dark);
+}
+
+ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+}
+
+@media all and (max-width: 940px) {
+    .token-ale, .token-lager  {
+        font-size:.7rem;
+        display: block;
+        width: 75%;
+        font-size: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        }
+
+    .type-ale, .type-lager {
+        min-height: 250px;
+    }
+
+    .ale-view {
+        min-height: 540px;
+    }
+}
+
+@media (min-width: 941px) and (max-width: 1200px)  {
+    .token-ale, .token-lager  {
+        font-size: .8rem;
+        }
+    }
+
+
+@media all and (max-width: 800px) {
+    .token-ale, .token-lager  {
+        font-size:.7rem;
+        }
+
+    .type-ale, .type-lager {
+        height: 250px;
+    }
+
+    .ale-view {
+        min-height: 540px;
+    }
+}
+
+/* Smartphones (landscape) ----------- */
+/* @media only screen and (min-width : 320px) {
+    .type-ale, .type-lager {
+        width: 20%;
+        height: 180px;
+        margin: .5%;
+        min-width: 150px;
+    }
+
+    .ale-view {
+        min-height: 400px;
+    }
+} */
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+      .type-ale, .type-lager {
+          width: 30%;
+          min-height: 300px;
+      }
+
+      h1 {
+          font-size: 3rem;
+      }
+
+    .token-ale, .token-lager {
+        display: block;
+        width: 75%;
+        font-size: 1.4rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+      .type-ale, .type-lager {
+          width: 20%;
+          min-height: 300px;
+      }
+
+      h1 {
+          font-size: 3rem;
+      }
+
+    .token-ale, .token-lager {
+        display: block;
+        width: 75%;
+        font-size: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
