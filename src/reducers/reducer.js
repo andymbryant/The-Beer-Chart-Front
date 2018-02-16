@@ -1,4 +1,4 @@
-import {LOAD_BEER} from './actions';
+import {LOAD_BEER} from '../actions';
 
 const initialState = {
     guesses: [],
@@ -10,6 +10,6 @@ const initialState = {
 export default (state = initialState, action) => {
 
     if (action.type === LOAD_BEER) {
-        console.log(action.beer);
+        alert(action.beer);
     }
 };

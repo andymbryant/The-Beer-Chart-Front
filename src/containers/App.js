@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Type from './Type';
+import ModalRoot from './ModalRoot';
 
 import lagers from '../lagers';
 import ales from '../ales';
@@ -26,6 +27,12 @@ class App extends React.Component {
 
             <div className='lager-view'>
                 <Type beerData={lagers} type='lager'/>
+            </div>
+            <div>
+                <div>
+                    {this.props.children}
+                </div>
+                <ModalRoot />
             </div>
         </main>
     )
