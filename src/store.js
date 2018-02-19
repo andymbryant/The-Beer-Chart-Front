@@ -1,5 +1,20 @@
-import {createStore} from 'redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import thunk from 'redux-thunk';
 
-import reducer from './reducer';
+import dialogReducer from './reducer';
 
-export default createStore(reducer);
+const withDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const middleware = [
+  thunk
+]
+
+const reducers = {
+  dialogReducer
+};
+
+const reducer = combineReducers(reducers);
+
+export default createStore(reducer, withDevTools(
+  applyMiddleware(...middleware)
+));

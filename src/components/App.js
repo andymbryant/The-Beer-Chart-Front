@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Type from './Type';
-
 import lagers from '../lagers';
 import ales from '../ales';
 

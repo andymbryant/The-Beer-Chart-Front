@@ -1,15 +1,41 @@
+import * as c from './constants';
 import {LOAD_BEER} from './actions';
 
 const initialState = {
-    guesses: [],
-    feedback: 'Make your guess!',
-    auralStatus: '',
-    correctAnswer: Math.round(Math.random() * 100) + 1
-};
+  dialogs: {}
+}
 
 export default (state = initialState, action) => {
+  switch (action.type) {
+    case c.OPEN_DIALOG:
+      const dialogsAfterOpen = Object.assign({}, state.dialogs, {
+        [action.name]: {
+          isOpen: true,
+          payload: action.payload
+        }
+      });
 
-    if (action.type === LOAD_BEER) {
-        console.log(action.beer);
-    }
-};
+      return Object.assign({}, state, {
+        dialogs: dialogsAfterOpen
+      });
+    break;
+
+    case c.CLOSE_DIALOG:
+      const dialogsAfterClose = Object.assign({}, state.dialogs, {
+        [action.name]: {
+          isOpen: false
+        }
+      });
+
+      return Object.assign({}, state, {
+        dialogs: dialogsAfterClose
+      });
+
+    case LOAD_BEER:
+      console.log(action.beer);
+    break;
+
+    default:
+      return state;
+  }
+}

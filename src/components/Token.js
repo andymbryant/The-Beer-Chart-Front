@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {loadBeer} from '../actions';
+import { loadBeer, openDialog, closeDialog, closeAllDialogs } from '../actions';
 
 class Token extends React.Component {
 
@@ -13,7 +13,7 @@ class Token extends React.Component {
             <ul>
                 {beers.map((key, index) => {
                     return (
-                        <li key={key} className={`token-${type}`} onClick={() => this.props.dispatch(loadBeer(key))}>{key}</li>
+                        <li key={key} className={`token-${type}`} onClick={() => this.props.dispatch(openDialog('Beer Dialog', { beer: `${key}` }))}>{key}</li>
                     )
                 })}
             </ul>
