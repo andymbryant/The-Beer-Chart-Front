@@ -6,14 +6,14 @@ import { loadBeer, openDialog, closeDialog, closeAllDialogs } from '../actions';
 class Token extends React.Component {
 
     render() {
-        const { beers, type } = this.props;
+        const { beers, type, id } = this.props;
 
         return (
         <div>
             <ul>
                 {beers.map((key, index) => {
                     return (
-                        <li key={key} className={`token-${type}`} onClick={() => this.props.dispatch(openDialog('Beer Dialog', { beer: `${key}` }))}>{key}</li>
+                        <li key={key} className={`token-${type}`} onClick={() => this.props.dispatch(openDialog('Beer Dialog', { beer: `${key}`, id: `${id}` }))}>{key}</li>
                     )
                 })}
             </ul>

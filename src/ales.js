@@ -2,7 +2,8 @@
 const ales = [
     {
         name: 'Browns',
-        beers: ['American', 'English']
+        beers: ['American', 'English'],
+        id: 'cQMfwv',
     },
     {
         name: 'Porters',

@@ -7,14 +7,23 @@ export const loadBeer = beer => ({
 });
 
 export const openDialog = (name, payload) => dispatch => {
-    return fetch('http://localhost:3000/beers/wheat')
+    console.log(payload.id);
+    return fetch(`http://localhost:3000/beerId/${payload.id}`)
         .then(res => res.json())
         .then(beer => dispatch({type: c.OPEN_DIALOG, name: name, payload: {
-            name: beer.name,
-            desc: beer.description,
-            abv: beer.abv,
-            ibu: beer.ibu,
+            typeName: beer.style.name,
+            typeDesc: beer.style.description,
             pair: beer.foodPairings,
+            glass: beer.glass.name,
+            abvMin: beer.style.abvMin,
+            abvMax: beer.style.abvMax,
+            ibuMin: beer.style.ibuMin,
+            ibuMax: beer.style.ibuMax,
+            tokenName: beer.name,
+            tokenDesc: beer.description,
+            ibu: beer.ibu,
+            abv: beer.abv,
+            img: beer.labels.large
         }
         }
     )

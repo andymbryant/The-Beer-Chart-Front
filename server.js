@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-app.get('/beer/:beerId', function(req,res){
+app.get('/beerId/:beerId', function(req,res){
   brewdb.beer.getById(req.params.beerId, {}, function(err, beer) {
     if(err) {
         console.error(err);
@@ -23,7 +23,7 @@ app.get('/beer/:beerId', function(req,res){
   })
 });
 
-app.get('/beer/:type', function(req,res){
+app.get('/beerType/:type', function(req,res){
   brewdb.beer.find({name: req.params.type}, function(err, beer) {
     if(err) {
         console.error(err);
@@ -48,8 +48,6 @@ app.get('/beer/:token', function(req,res){
     }
   })
 });
-
-
 
 app.listen(3000, function() {
     console.log("working");
