@@ -10,7 +10,6 @@ import store from './store';
 import './css/style.css';
 import App from './components/App';
 
-
 const Dialog = reduxDialog({
   name: 'Sign up dialog'
 })(BasicDialog);

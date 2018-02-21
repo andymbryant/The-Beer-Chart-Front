@@ -13,7 +13,7 @@ class Token extends React.Component {
             <ul>
                 {beers.map((key, index) => {
                     return (
-                        <li key={key} className={`token-${type}`} onClick={() => this.props.dispatch(openDialog('Beer Dialog', { beer: `${key}`, id: `${id}` }))}>{key}</li>
+                        <li key={key} className={`token-${type}`} onClick={() => this.props.dispatch(openDialog('Beer Dialog', { beer: `${key}`, id: `${id[index]}` }))}>{key}</li>
                     )
                 })}
             </ul>
