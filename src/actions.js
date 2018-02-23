@@ -1,10 +1,13 @@
 import * as c from './constants';
 
-export const LOAD_BEER = 'LOAD_BEER';
-export const loadBeer = beer => ({
-    type: LOAD_BEER,
-    beer
-});
+export const updateRating = (payload) => {
+    return {
+        type: c.UPDATE_RATING,
+        payload: payload,
+
+    }
+}
+
 
 export const openDialog = (name, payload) => dispatch => {
     return fetch(`http://localhost:3000/beerNode/`)
@@ -20,7 +23,12 @@ export const openDialog = (name, payload) => dispatch => {
             abvMin : beer.abvMin,
             abvMax : beer.abvMax,
             srmMin : beer.srmMin,
-            srmMax : beer.srmMax
+            srmMax : beer.srmMax,
+            fName: beer.featuredName,
+            fBrewery: beer.featuredBrewery,
+            fLink: beer.featuredLink,
+            rating: beer.rating,
+            notes: beer.notes
         }
         }
     )

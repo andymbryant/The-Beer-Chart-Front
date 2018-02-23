@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import { loadBeer, openDialog, closeDialog, closeAllDialogs } from '../actions';
+import { openDialog, closeDialog, closeAllDialogs } from '../actions';
 
 class Token extends React.Component {
 

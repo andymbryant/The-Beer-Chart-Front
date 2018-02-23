@@ -6,7 +6,7 @@ import dialogReducer from './reducer';
 const withDevTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const middleware = [
-  thunk
+    thunk
 ]
 
 const reducers = {
@@ -15,6 +15,8 @@ const reducers = {
 
 const reducer = combineReducers(reducers);
 
-export default createStore(reducer, withDevTools(
+const store = createStore(reducer, withDevTools(
   applyMiddleware(...middleware)
 ));
+
+export default store;

@@ -1,26 +1,45 @@
 import React from 'react';
 
+import Stars from './components/Stars';
+import Text from './components/Text';
+
+
+
 const BeerDialog = (props) => (
-  <div>
-    <div className="dlg--body">
-      <a href="#" onClick={ props.onRequestClose }>X</a>
-      <ul>
-        <li>{ props.payload.name }</li>
-        <li>{ props.payload.shortName }</li>
-        <li>{ props.payload.desc }</li>
-        <li>{ props.payload.glass }</li>
-        <li>{ props.payload.pair }</li>
-        <li>{ props.payload.abvMin }</li>
-        <li>{ props.payload.abvMax }</li>
-        <li>{ props.payload.ibuMin }</li>
-        <li>{ props.payload.ibuMax }</li>
-        <li>{ props.payload.srmMin }</li>
-        <li>{ props.payload.srmMax }</li>
+<div>
+    <div>
+        <a className="close" href="#" onClick={ props.onRequestClose }>X</a>
+        <div>
+            <Stars rating={props.payload.rating}/>
+        </div>
 
+        <div className="name">
+            <h1 className="beer-title">{ props.payload.name }</h1>
+            <h3><em>{ props.payload.shortName }</em></h3>
+        </div>
 
-      </ul>
+        <div className="beer-info">
+            <p className="beer-detail"><strong>ABV:</strong> { props.payload.abvMin }-{ props.payload.abvMax }%</p>
+            <p className="beer-detail"><strong>IBU:</strong> { props.payload.ibuMin }-{ props.payload.ibuMax }</p>
+            <p className="beer-detail"><strong>SRM:</strong> { props.payload.srmMin }-{ props.payload.srmMax }</p>
+        </div>
     </div>
-  </div>
+
+        <p>{ props.payload.desc }</p>
+        <p>Best served in a { props.payload.glass }.</p>
+        <p><strong>Food pairings:</strong> { props.payload.pair }</p>
+        <p>Check out this featured { props.payload.shortName } from { props.payload.fBrewery}: <a href={`${props.payload.fLink}`} target='_blank'>{  props.payload.fName}</a></p>
+
+
+    <div>
+        {props.payload.notes.map((note, index) => {
+            return (
+                <Text note={note} key={index} index={index}/>
+            )
+        })}
+    </div>
+</div>
+
 );
 
 export default BeerDialog;

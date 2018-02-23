@@ -1,8 +1,8 @@
 import * as c from './constants';
-import {LOAD_BEER} from './actions';
+import {UPDATE_RATING} from './actions';
 
 const initialState = {
-  dialogs: {}
+  dialogs: {},
 }
 
 export default (state = initialState, action) => {
@@ -31,8 +31,8 @@ export default (state = initialState, action) => {
         dialogs: dialogsAfterClose
       });
 
-    case LOAD_BEER:
-      console.log(action.beer);
+    case c.UPDATE_RATING:
+      console.log('hello');
     break;
 
     default:
