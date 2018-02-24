@@ -1,9 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import StarRatingComponent from 'react-star-rating-component';
-
-import store from '../store';
 
 class Stars extends React.Component {
     constructor(props) {

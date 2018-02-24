@@ -1,5 +1,4 @@
 import * as c from './constants';
-import {UPDATE_RATING} from './actions';
 
 const initialState = {
   dialogs: {},
@@ -30,10 +29,6 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         dialogs: dialogsAfterClose
       });
-
-    case c.UPDATE_RATING:
-      console.log('hello');
-    break;
 
     default:
       return state;

@@ -1,8 +1,10 @@
 import React from 'react';
 
 import Type from './Type';
+
 import lagers from '../lagers';
 import ales from '../ales';
+import specialty from '../specialty'
 
 class App extends React.Component {
     constructor() {
@@ -20,7 +22,11 @@ class App extends React.Component {
     return (
         <main>
             <div className='ale-view'>
-                <Type beerData={ales} type='ale' test={this.test}/>
+                <Type beerData={ales} type='ale'/>
+            </div>
+
+            <div className='specialty-view'>
+                <Type beerData={specialty} type='specialty'/>
             </div>
 
             <div className='lager-view'>

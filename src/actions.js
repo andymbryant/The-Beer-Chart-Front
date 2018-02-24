@@ -10,7 +10,7 @@ export const updateRating = (payload) => {
 
 
 export const openDialog = (name, payload) => dispatch => {
-    return fetch(`http://localhost:3000/beerNode/`)
+    return fetch(`http://localhost:3000/beerNode/${payload.id}`)
         .then(res => res.json())
         .then(beer => dispatch({type: c.OPEN_DIALOG, name: name, payload: {
             name: beer.name,
@@ -26,9 +26,7 @@ export const openDialog = (name, payload) => dispatch => {
             srmMax : beer.srmMax,
             fName: beer.featuredName,
             fBrewery: beer.featuredBrewery,
-            fLink: beer.featuredLink,
-            rating: beer.rating,
-            notes: beer.notes
+            fLink: beer.featuredLink
         }
         }
     )

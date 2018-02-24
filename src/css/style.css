@@ -3,6 +3,8 @@
     --ale-light: #fecb70;
     --lager-dark: #b10914;
     --lager-light: #d88489;
+    --specialty-dark: #ef4800;
+    --specialty-light: #f7a37f;
 }
 
 main {
@@ -17,7 +19,7 @@ main {
     min-width: 650px;
 }
 
-.ale-view, .lager-view {
+.ale-view, .lager-view, .specialty-view {
     width: 100%;
     text-align: center;
     padding: .5%;
@@ -34,7 +36,12 @@ main {
     height: 40%;
 }
 
-.type-ale, .type-lager {
+.specialty-view {
+    background: #d3d3d3;
+    height: 40%;
+}
+
+.type-ale, .type-lager, .type-specialty {
     width: 20%;
     border: black 1px solid;
     height: 200px;
@@ -53,7 +60,11 @@ main {
     background: var(--lager-light);
 }
 
-.type-header-ale, .type-header-lager {
+.type-specialty {
+    background: var(--specialty-light);
+}
+
+.type-header-ale, .type-header-lager, .type-header-specialty {
     padding: .6rem 0;
     border-bottom: black 1px solid;
 }
@@ -66,11 +77,15 @@ main {
     background: var(--lager-dark);
 }
 
+.type-header-specialty {
+    background: var(--specialty-dark)
+}
+
 .type-title {
     margin: 0;
 }
 
-.token-ale, .token-lager {
+.token-ale, .token-lager, .token-specialty {
     width: 40%;
     padding: .4rem 0;
     margin: .5rem;
@@ -84,6 +99,10 @@ main {
 
 .token-lager {
     background: var(--lager-dark);
+}
+
+.token-specialty {
+    background: var(--specialty-dark);
 }
 
 ul {

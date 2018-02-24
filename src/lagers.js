@@ -1,7 +1,8 @@
 const lagers = [
     {
         name: 'Dark lagers',
-        beers: ['Schwarzbier', 'Dunkel']
+        beers: ['Schwarzbier', 'Dunkel'],
+        id: ['Gb59Y6', 'abH342']
     },
     {
         name: 'Pale lagers',

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import reduxDialog from './redux-dialog';
 
-import { openDialog, closeDialog, closeAllDialogs } from './actions';
 import BasicDialog from './dialog'
 import BeerDialog from './BeerDialog'
 import store from './store';
@@ -22,8 +21,8 @@ ReactDOM.render(
     <Provider store={store}>
         <div>
             <App />
-            <Dialog2 onAfterOpen={ () => console.log('On After Open') } onRequestClose={ () => console.log('On Request Close') } />
-            <Dialog onAfterOpen={ () => console.log('On After Open') } onRequestClose={ () => console.log('On Request Close') } />
+            <Dialog2/>
+            <Dialog />
         </div>
     </Provider>,
     document.getElementById('main')
