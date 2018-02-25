@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import reduxDialog from './redux-dialog';
+import reduxDialog from './redux/redux-dialog';
 
-import BasicDialog from './dialog'
-import BeerDialog from './BeerDialog'
-import store from './store';
+import BasicDialog from './redux/dialog'
+import BeerDialog from './redux/BeerDialog'
+import store from './redux/store';
 import './css/style.css';
 import App from './components/App';
 

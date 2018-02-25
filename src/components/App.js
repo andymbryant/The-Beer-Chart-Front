@@ -2,9 +2,9 @@ import React from 'react';
 
 import Type from './Type';
 
-import lagers from '../lagers';
-import ales from '../ales';
-import specialty from '../specialty'
+import lagers from '../beers/lagers';
+import ales from '../beers/ales';
+import specialty from '../beers/specialty'
 
 class App extends React.Component {
     constructor() {

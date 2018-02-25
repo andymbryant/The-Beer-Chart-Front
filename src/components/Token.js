@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import { openDialog } from '../actions';
+import { openDialog } from '../redux/actions';
 
 class Token extends React.Component {
 
