@@ -6,11 +6,13 @@ const lagers = [
     },
     {
         name: 'Pale lagers',
-        beers: ['Helles (pale)', 'Pilsner', 'American Light Lager', 'India Pale Lager']
+        beers: ['Helles (pale)', 'Pilsner', 'American Light Lager'],
+        id: ['WMbwjM', 'IZx5D1', 'gJJxQH']
     },
     {
         name: 'Bocks',
-        beers: ['Maibock', 'Doppelbock', 'Hellesbock', 'Eisbock']
+        beers: ['Maibock', 'Doppelbock', 'Eisbock'],
+        id: ['KJwvCY', 'R5WrMN', 'bcEO9b']
     }
 ]
 

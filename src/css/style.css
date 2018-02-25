@@ -5,6 +5,8 @@
     --lager-light: #d88489;
     --specialty-dark: #ef4800;
     --specialty-light: #f7a37f;
+    --background-dark: #fff5e2;
+    --background-light: #fdf4f5;
 }
 
 main {
@@ -26,19 +28,19 @@ main {
 }
 
 .ale-view {
-    background: grey;
+    background: var(--background-dark);
     min-height: 450px;
     height: 60%;
 }
 
 .lager-view {
-    background: #d3d3d3;
+    background: var(--background-light);
     height: 40%;
 }
 
 .specialty-view {
-    background: #d3d3d3;
-    height: 40%;
+    position: absolute;
+    top: 50%;
 }
 
 .type-ale, .type-lager, .type-specialty {
@@ -58,6 +60,8 @@ main {
 
 .type-lager {
     background: var(--lager-light);
+    position: relative;
+    bottom: 0;
 }
 
 .type-specialty {
