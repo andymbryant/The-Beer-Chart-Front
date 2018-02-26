@@ -95,6 +95,12 @@ main {
     margin: .5rem;
     display: inline-block;
     font-size: 1rem;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+}
+
+.token-ale:hover, .token-lager:hover, .token-specialty:hover {
+    transform: scale(1.02);
 }
 
 .token-ale {

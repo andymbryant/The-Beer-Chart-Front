@@ -2,8 +2,8 @@ import React from 'react';
 
 import Auth from '../modules/Auth';
 
-// import Stars from './components/Stars';
-// import Text from './components/Text';
+import Stars from '../components/Stars';
+import Text from '../components/Text';
 
 const BeerDialog = (props) => (
 <div>
@@ -16,9 +16,9 @@ const BeerDialog = (props) => (
     )}
     <div>
         <a className="close" href="#" onClick={ props.onRequestClose }>X</a>
-        {/* <div>
+        <div>
             <Stars rating={props.payload.rating}/>
-        </div> */}
+        </div>
 
         <div className="name">
             <h1 className="beer-title">{ props.payload.name }</h1>
@@ -38,13 +38,13 @@ const BeerDialog = (props) => (
         <p>Check out this featured { props.payload.shortName } from { props.payload.fBrewery}: <a href={`${props.payload.fLink}`} target='_blank'>{  props.payload.fName}.</a></p>
 
 
-    {/* <div>
-        {props.payload.notes.map((note, index) => {
+    <div>
+        {/* {props.payload.notes.map((note, index) => {
             return (
                 <Text note={note} key={index} index={index}/>
             )
-        })}
-    </div> */}
+        })} */}
+    </div>
 </div>
 
 );

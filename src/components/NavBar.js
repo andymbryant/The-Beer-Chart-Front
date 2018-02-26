@@ -56,6 +56,7 @@ class NavBar extends Component {
         <AppBar
           title="Beer!"
           iconElementRight={this.state.logged ? <Logged /> : <Login />}
+          showMenuIconButton={false}
         />
       </div>
     );

@@ -1,16 +1,32 @@
 import React from 'react';
-
+import Auth from '../modules/Auth';
 import StarRatingComponent from 'react-star-rating-component';
+
+import Snackbar from 'material-ui/Snackbar';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Stars extends React.Component {
     constructor(props) {
         super(props);
 
         this.state=({
-            rating: this.props.rating
+            rating: this.props.rating,
+            open: false
         })
 
     }
+
+    handleClick = () => {
+        this.setState({
+        open: true,
+        });
+    };
+
+    handleRequestClose = () => {
+        this.setState({
+        open: false,
+        });
+    };
 
     onStarClick(nextValue, prevValue, name) {
         this.setState({rating: nextValue});
@@ -18,12 +34,13 @@ class Stars extends React.Component {
 
     ratingSubmit(rating) {
         console.log('this is working');
-        fetch('http://localhost:3000/beerUpdate', {
+        fetch('http://localhost:3000/stars/', {
             method: 'put',
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
+            withCredentials: true,
             body: JSON.stringify({
               rating: rating
             })
@@ -41,7 +58,24 @@ class Stars extends React.Component {
                     value={rating}
                     onStarClick={this.onStarClick.bind(this)}
                 />
-                <button rating={rating} onClick={ () => this.ratingSubmit(rating)}></button>
+
+                {Auth.isUserAuthenticated() ? (
+                    <button className="submit-button" rating={rating} onClick={ () => this.ratingSubmit(rating)}>Submit</button>
+                ) : (
+                    <button className="submit-button" disabled={true}>Submit</button>
+
+                )}
+
+                <RaisedButton
+                    onClick={this.handleClick}
+                    label="Add to my calendar"
+                />
+                <Snackbar
+                    open={this.state.open}
+                    message="Event added to your calendar"
+                    autoHideDuration={4000}
+                    onRequestClose={this.handleRequestClose}
+                />
             </div>
         );
     }
