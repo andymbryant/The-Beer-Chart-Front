@@ -77,7 +77,7 @@ class Main extends Component {
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <Router>
           <div>
-                <Link to="/">React App</Link>
+                {/* <Link to="/">React App</Link>
               {this.state.authenticated ? (
                 <div className="top-bar-right">
                   <Link to="/logout">Log out</Link>
@@ -87,7 +87,7 @@ class Main extends Component {
                   <Link to="/login">Log in</Link>
                   <Link to="/signup">Sign up</Link>
                 </div>
-              )}
+              )} */}
 
             <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />

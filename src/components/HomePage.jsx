@@ -4,10 +4,16 @@ import Auth from '../modules/Auth';
 
 import Type from './Type';
 import Nav from './Nav';
+import NavBar from './NavBar';
 
 import lagers from '../beers/lagers';
 import ales from '../beers/ales';
 import specialty from '../beers/specialty'
+
+import { Link }from 'react-router-dom';
+import { openDialog } from '../redux/actions';
+
+import {connect} from 'react-redux';
 
 class HomePage extends React.Component {
 
@@ -19,19 +25,12 @@ class HomePage extends React.Component {
     render() {
         return (
             <main>
-                {/* <Card className="container">
-                <CardTitle title="React Application" subtitle="This is the home page." />
-                  {Auth.isUserAuthenticated() ? (
-                    <CardText style={{ fontSize: '16px', color: 'green' }}>Welcome! You are logged in.</CardText>
-                  ) : (
-                    <CardText style={{ fontSize: '16px', color: 'green' }}>You are not logged in.</CardText>
-                  )}
-                </Card> */}
+                {Auth.isUserAuthenticated() ? (
+                    <NavBar logged={true} />
+                ) : (
+                    <NavBar logged={false} />
 
-                {/* <div>
-                    <Nav />
-                </div> */}
-
+                )}
                 <div className='ale-view'>
                     <Type beerData={ales} type='ale'/>
                 </div>
@@ -49,4 +48,4 @@ class HomePage extends React.Component {
     }
 };
 
-export default HomePage;
+export default connect()(HomePage);

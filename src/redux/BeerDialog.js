@@ -1,10 +1,19 @@
 import React from 'react';
 
+import Auth from '../modules/Auth';
+
 // import Stars from './components/Stars';
 // import Text from './components/Text';
 
 const BeerDialog = (props) => (
 <div>
+
+    {Auth.isUserAuthenticated() ? (
+        <h1>Logged in</h1>
+    ) : (
+        <h1>Not logged in</h1>
+
+    )}
     <div>
         <a className="close" href="#" onClick={ props.onRequestClose }>X</a>
         {/* <div>

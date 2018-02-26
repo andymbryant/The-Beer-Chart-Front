@@ -14,6 +14,7 @@ class LogoutFunction extends React.Component {
   render() {
     return (
       <div>
+          {console.log('logout function ran')}
         <p>Logging out...</p>
       </div>
     )

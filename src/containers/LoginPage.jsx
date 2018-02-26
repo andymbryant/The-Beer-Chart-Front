@@ -115,7 +115,6 @@ class LoginPage extends React.Component {
       />
     );
   }
-
 }
 
 LoginPage.contextTypes = {
