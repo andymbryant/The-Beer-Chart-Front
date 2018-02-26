@@ -4,15 +4,14 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 
-
-import {connect} from 'react-redux';
-
-import { openDialog } from '../redux/actions';
+import Stars from './Stars';
+import Text from './Text';
 
 class Token extends React.Component {
     state = {
         open: false,
-        beer: 'beer',
+        beer: '',
+        beerId: ''
     };
 
     handleOpen = () => {
@@ -20,6 +19,7 @@ class Token extends React.Component {
         fetch(`http://localhost:3000/beerNode/cQMfwv`)
             .then(res => res.json())
             .then(beer => this.setState({beer}));
+        this.setState({beerId: this.state.beer.beerId})
         }
 
     handleClose = () => {
@@ -30,14 +30,7 @@ class Token extends React.Component {
 
         const actions = [
             <FlatButton
-                label="Cancel"
-                primary={true}
-                onClick={this.handleClose}
-            />,
-            <FlatButton
-                label="Submit"
-                primary={true}
-                keyboardFocused={true}
+                label="Close"
                 onClick={this.handleClose}
             />,
         ];
@@ -45,12 +38,10 @@ class Token extends React.Component {
         const { beers, type, id } = this.props;
 
         return (
-
         <div>
             <ul>
                 {beers.map((key, index) => {
                     return (
-                        // <li key={key} className={`token-${type}`} onClick={() => this.props.dispatch(openDialog('Beer Dialog', { beer: `${key}`, id: `${id[index]}` }))}>{key}</li>
                         <li key={key} className={`token-${type}`} onClick={this.handleOpen}>{key}</li>
                     )
                 })}
@@ -84,13 +75,9 @@ class Token extends React.Component {
                         <p>{ this.state.beer.desc }</p>
                         <p>Best served in a { this.state.beer.glass }.</p>
                         <p><strong>Food pairings:</strong> { this.state.beer.pair }</p>
-                        <p>Check out this featured { this.state.beer.shortName } from { this.state.beer.fBrewery}: <a href={`${this.state.beer.fLink}`} target='_blank'>{  this.state.beer.fName}.</a></p>
+                        <p>Check out this featured { this.state.beer.shortName } from { this.state.beer.featuredBrewery}: <a href={`${this.state.beer.featuredLink}`} target='_blank'>{this.state.beer.featuredName}.</a></p>
                       <div>
-                          {/* {this.state.beer.notes.map((note, index) => {
-                              return (
-                                  <Text note={note} key={index} index={index}/>
-                              )
-                          })} */}
+                          <Text beerId={this.state.beer.beerId}/>
                       </div>
               </Dialog>
         </div>
@@ -98,4 +85,4 @@ class Token extends React.Component {
     }
 }
 
-export default connect()(Token);
+export default Token;
