@@ -156,6 +156,11 @@ ul {
     border: black solid 1px;
 }
 
+.rating {
+    display: inline;
+    font-weight: 600;
+}
+
 @media all and (max-width: 940px) {
     .token-ale, .token-lager  {
         font-size:.7rem;

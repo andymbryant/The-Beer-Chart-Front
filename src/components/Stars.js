@@ -10,10 +10,26 @@ class Stars extends React.Component {
         super(props);
 
         this.state=({
-            rating: this.props.rating,
+            rating: 0,
             open: false
         })
 
+    }
+
+    componentDidMount() {
+        const test = this.props.beerId;
+        console.log(`This is test: ${test}`);
+        Auth.isUserAuthenticated() ? (
+            fetch(`http://localhost:3000/api/stars/${test}`, {
+                method: 'get',
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                  'Authorization': `bearer ${Auth.getToken()}`
+                },
+            }).then(res => res.json()).then(response => this.setState({rating: response.rating}))
+        ) : (this.setState({
+            value: 0
+        }))
     }
 
     handleClick = () => {
@@ -30,20 +46,18 @@ class Stars extends React.Component {
 
     onStarClick(nextValue, prevValue, name) {
         this.setState({rating: nextValue});
+
     }
 
-    ratingSubmit(rating) {
-        console.log('this is working');
-        fetch('http://localhost:3000/stars/', {
+    ratingSubmit() {
+        const beerId = this.props.beerId;
+        fetch(`http://localhost:3000/api/stars/${beerId}`, {
             method: 'put',
             headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Authorization': `bearer ${Auth.getToken()}`
             },
-            withCredentials: true,
-            body: JSON.stringify({
-              rating: rating
-            })
+            body: JSON.stringify(this.state.rating)
         })
     }
 
@@ -51,7 +65,7 @@ class Stars extends React.Component {
         const { rating } = this.state;
         return (
             <div>
-                <h2>Rating from state: {rating}</h2>
+                <p className="rating">My Rating: </p>
                 <StarRatingComponent
                     name="rate1"
                     starCount={10}
@@ -59,17 +73,16 @@ class Stars extends React.Component {
                     onStarClick={this.onStarClick.bind(this)}
                 />
 
-                {Auth.isUserAuthenticated() ? (
-                    <button className="submit-button" rating={rating} onClick={ () => this.ratingSubmit(rating)}>Submit</button>
-                ) : (
-                    <button className="submit-button" disabled={true}>Submit</button>
+                    <RaisedButton
+                        onClick={()=> this.ratingSubmit()}
+                        label="Submit"
+                    />
+                    {/* <RaisedButton
+                        rating={rating}
+                        label="Submit"
+                        disabled={true}
+                    /> */}
 
-                )}
-
-                <RaisedButton
-                    onClick={this.handleClick}
-                    label="Add to my calendar"
-                />
                 <Snackbar
                     open={this.state.open}
                     message="Event added to your calendar"

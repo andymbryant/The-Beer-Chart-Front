@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {pink500} from 'material-ui/styles/colors';
 // import routes from './routes.js';
 
 import {
@@ -11,7 +12,6 @@ import {
   Redirect,
   withRouter
 } from 'react-router-dom';
-
 
 import HomePage from './components/HomePage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
@@ -73,6 +73,16 @@ class Main extends Component {
   }
 
   render() {
+
+    const muiTheme = getMuiTheme({
+        palette: {
+          textColor: pink500,
+        },
+        appBar: {
+          height: 100,
+        },
+      });
+
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <Router>

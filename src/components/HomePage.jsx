@@ -11,9 +11,6 @@ import ales from '../beers/ales';
 import specialty from '../beers/specialty'
 
 import { Link }from 'react-router-dom';
-import { openDialog } from '../redux/actions';
-
-import {connect} from 'react-redux';
 
 class HomePage extends React.Component {
 
@@ -48,4 +45,4 @@ class HomePage extends React.Component {
     }
 };
 
-export default connect()(HomePage);
+export default HomePage;

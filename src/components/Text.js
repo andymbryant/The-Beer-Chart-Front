@@ -6,9 +6,9 @@ class Text extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            beerId: this.props.beerId,
             value: '',
             index: this.props.index,
-            secretData: '',
             user: {}
         };
 
@@ -16,9 +16,17 @@ class Text extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 }
 
-    componentWillMount() {
-        this.setState({
-            value: this.props.note})
+    componentDidMount() {
+        const test = this.state.beerId;
+        // console.log(log);
+        fetch(`http://localhost:3000/api/note/${test}`, {
+            method: 'get',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Authorization': `bearer ${Auth.getToken()}`
+            },
+        }).then(res => res.json()).then(response => this.setState({
+            value: response.note}))
     }
 
     handleChange(event) {
@@ -27,45 +35,42 @@ class Text extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        // fetch('http://localhost:3000/note', {
-        //     method: 'post',
-        //     headers: {
-        //       'Accept': 'application/json',
-        //       'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({
-        //       note: this.state.value,
-        //       index: this.state.index
-        //     })
-        // })
-
-        const xhr = new XMLHttpRequest();
-        xhr.open('post', 'http://localhost:3000/api/note');
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        // set the authorization HTTP header
-        xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
-        xhr.responseType = 'json';
-        xhr.addEventListener('load', () => {
-          if (xhr.status === 200) {
-            this.setState({
-              secretData: xhr.response.message,
-              user: xhr.response.user
-            });
-          }
-        });
-        xhr.send();
-
+        const test = this.props.beerId;
+        fetch(`http://localhost:3000/api/note/${test}`, {
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Authorization': `bearer ${Auth.getToken()}`
+            },
+            body: this.state.value
+        }).then(res => res.json()).then(response => console.log(response.note))
     }
+
+        // const xhr = new XMLHttpRequest();
+        // xhr.open('post', 'http://localhost:3000/api/note');
+        // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        // // set the authorization HTTP header
+        // xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+        // xhr.responseType = 'json';
+        // xhr.addEventListener('load', () => {
+        //   if (xhr.status === 200) {
+        //     this.setState({
+        //       secretData: xhr.response.message,
+        //       user: xhr.response.user
+        //     });
+        //   }
+        // });
+        // xhr.send();
+
 
 
 
 
 
 render() {
-    const {beerId} = this.props;
+    const {beerId, text} = this.props;
     return (
         <form onSubmit={this.handleSubmit}>
-            <h1>{this.state.user.name}</h1>
             <label>
                 <input type="text" text={this.props.note} value={this.state.value} onChange={this.handleChange} />
             </label>
