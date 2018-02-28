@@ -3,6 +3,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {pink500} from 'material-ui/styles/colors';
+import * as Colors from 'material-ui/styles/colors';
 // import routes from './routes.js';
 
 import {
@@ -63,28 +64,30 @@ class Main extends Component {
   };
 
   componentDidMount() {
-    // check if user is logged in on refresh
     this.toggleAuthenticateStatus()
   }
 
   toggleAuthenticateStatus() {
-    // check authenticated status and toggle state based on that
     this.setState({ authenticated: Auth.isUserAuthenticated() })
   }
 
   render() {
 
-    const muiTheme = getMuiTheme({
-        palette: {
-          textColor: pink500,
-        },
-        appBar: {
-          height: 100,
-        },
-      });
 
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <MuiThemeProvider muiTheme={getMuiTheme({
+        palette: {
+          primary1Color: Colors.grey500,
+          primary2Color: Colors.grey500,
+          accent1Color: Colors.redA200,
+          pickerHeaderColor: Colors.darkBlack,
+          alternateTextColor: Colors.redA200
+        },
+        appBar: {
+          height: 50,
+        },
+        })
+      }>
         <Router>
           <div>
 

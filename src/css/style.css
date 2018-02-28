@@ -1,12 +1,16 @@
 :root {
-    --ale-dark: #fda810;
+    --ale-dark: #FFAB00;
     --ale-light: #fecb70;
-    --lager-dark: #b10914;
-    --lager-light: #d88489;
-    --specialty-dark: #ef4800;
-    --specialty-light: #f7a37f;
+    --lager-dark: #DD2C00;
+    --lager-light: #FFAB91;
+    --specialty-dark: #FF6D00;
+    --specialty-light: #FFCC80;
     --background-dark: #fff5e2;
     --background-light: #fdf4f5;
+}
+
+body, html {
+    height: 100%;
 }
 
 main {
@@ -21,6 +25,10 @@ main {
     min-width: 650px;
 }
 
+#main {
+    height: 100%;
+}
+
 .ale-view, .lager-view, .specialty-view {
     width: 100%;
     text-align: center;
@@ -30,7 +38,8 @@ main {
 .ale-view {
     background: var(--background-dark);
     min-height: 450px;
-    height: 60%;
+    height: 40%;
+    padding-top: 5rem;
 }
 
 .lager-view {
@@ -39,23 +48,66 @@ main {
 }
 
 .specialty-view {
-    position: absolute;
-    top: 50%;
+    background: white;
+    height: 40%;
+    margin: auto;
+    background-image: linear-gradient(bottom, #fdf4f5 50%, #fff5e2 50%);
+    background-image: -o-linear-gradient(bottom, #fdf4f5 50%, #fff5e2 50%);
+    background-image: -moz-linear-gradient(bottom, #fdf4f5 50%, #fff5e2 50%);
+    background-image: -webkit-linear-gradient(bottom, #fdf4f5 50%, #fff5e2 50%);
+    background-image: -ms-linear-gradient(bottom, #fdf4f5 50%, #fff5e2 50%);
 }
 
-.type-ale, .type-lager, .type-specialty {
+.beer-key {
     width: 20%;
-    border: black 1px solid;
+    height: 100%;
+    margin: .5%;
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 150px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.beer-key-ale {
+    width: 100%;
+    height: 50%;
+    background-color: var(--ale-dark);
+}
+
+.beer-key-lager {
+    width: 100%;
+    height: 50%;
+    background-color: var(--lager-dark);
+}
+
+.top, .bottom {
+    margin: 0;
+    vertical-align: middle;
+}
+
+.type-ale, .type-lager, .type-specialty, .type-amber {
+    width: 20%;
     height: 200px;
     color: white;
     margin: .5%;
     display: inline-block;
-    vertical-align: top;
     min-width: 150px;
+}
+
+.type-specialty, .type-amber {
+    vertical-align: middle;
+}
+
+.type-ale, .type-lager {
+    vertical-align: top;
 }
 
 .type-ale {
     background: var(--ale-light);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 .type-lager {
@@ -64,13 +116,13 @@ main {
     bottom: 0;
 }
 
-.type-specialty {
+.type-specialty, .type-amber {
     background: var(--specialty-light);
+    vertical-align: center;
 }
 
-.type-header-ale, .type-header-lager, .type-header-specialty {
+.type-header-ale, .type-header-lager, .type-header-specialty, .type-header-amber {
     padding: .6rem 0;
-    border-bottom: black 1px solid;
 }
 
 .type-header-ale {
@@ -81,7 +133,7 @@ main {
     background: var(--lager-dark);
 }
 
-.type-header-specialty {
+.type-header-specialty, .type-header-amber {
     background: var(--specialty-dark)
 }
 
@@ -89,17 +141,18 @@ main {
     margin: 0;
 }
 
-.token-ale, .token-lager, .token-specialty {
+.token-ale, .token-lager, .token-specialty, .token-amber {
     width: 40%;
     padding: .4rem 0;
     margin: .5rem;
     display: inline-block;
     font-size: 1rem;
     cursor: pointer;
-    transition: all .1s ease-in-out;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.token-ale:hover, .token-lager:hover, .token-specialty:hover {
+.token-ale:hover, .token-lager:hover, .token-specialty:hover, .token-amber:hover {
     transform: scale(1.02);
 }
 
@@ -111,7 +164,7 @@ main {
     background: var(--lager-dark);
 }
 
-.token-specialty {
+.token-specialty, .token-amber {
     background: var(--specialty-dark);
 }
 
@@ -127,15 +180,6 @@ ul {
     top: 0;
     margin: 1rem;
     text-decoration:  none;
-}
-
-
-.ReactModal__Content, .ReactModal__Content--after-open {
-    max-width: 700px;
-    max-height: 600px;
-    border-radius: 0 !important;
-    border: none !important;
-    margin: auto;
 }
 
 .beer-info::after {
@@ -161,8 +205,56 @@ ul {
     font-weight: 600;
 }
 
+.login-background {
+    background-image: url("../img/beer.jpg");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+}
+
+.login-form {
+    margin: auto;
+}
+
+.container {
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    width: 20%;
+    min-width: 300px;
+    height: 50%
+}
+
+.button-line {
+    margin-top: 2rem;
+}
+
+.card-heading {
+    margin-top: 2rem;
+}
+
+.register-background {
+    background-image: url("../img/beer2.jpg");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+}
+
+.inline {
+    display: inline;
+}
+
 @media all and (max-width: 940px) {
-    .token-ale, .token-lager  {
+    .token-ale, .token-lager, .token-amber, .token-specialty  {
         font-size:.7rem;
         display: block;
         width: 75%;
@@ -171,7 +263,7 @@ ul {
         margin-right: auto;
         }
 
-    .type-ale, .type-lager {
+    .type-ale, .type-lager, .type-specialty, .type-amber {
         min-height: 250px;
     }
 
@@ -181,18 +273,18 @@ ul {
 }
 
 @media (min-width: 941px) and (max-width: 1200px)  {
-    .token-ale, .token-lager  {
+    .token-ale, .token-lager, .token-amber, .token-specialty  {
         font-size: .8rem;
         }
     }
 
 
 @media all and (max-width: 800px) {
-    .token-ale, .token-lager  {
+    .token-ale, .token-lager, .token-amber, .token-specialty  {
         font-size:.7rem;
         }
 
-    .type-ale, .type-lager {
+    .type-ale, .type-lager, .type-specialty, .type-amber {
         height: 250px;
     }
 
@@ -221,7 +313,7 @@ ul {
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
-      .type-ale, .type-lager {
+      .type-ale, .type-lager, .type-specialty, .type-amber {
           width: 30%;
           min-height: 300px;
       }
@@ -230,7 +322,7 @@ ul {
           font-size: 3rem;
       }
 
-    .token-ale, .token-lager {
+    .token-ale, .token-lager, .token-amber, .token-specialty {
         display: block;
         width: 75%;
         font-size: 1.4rem;
@@ -243,7 +335,7 @@ ul {
   and (min-device-width: 768px)
   and (max-device-width: 1024px)
   and (-webkit-min-device-pixel-ratio: 1) {
-      .type-ale, .type-lager {
+      .type-ale, .type-lager, .type-specialty, .type-amber {
           width: 20%;
           min-height: 300px;
       }
@@ -252,7 +344,7 @@ ul {
           font-size: 3rem;
       }
 
-    .token-ale, .token-lager {
+    .token-ale, .token-lager, .token-amber, .token-specialty {
         display: block;
         width: 75%;
         font-size: 1rem;

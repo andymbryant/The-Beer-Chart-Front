@@ -8,7 +8,8 @@ import NavBar from './NavBar';
 
 import lagers from '../beers/lagers';
 import ales from '../beers/ales';
-import specialty from '../beers/specialty'
+import specialty from '../beers/specialty';
+import ambers from '../beers/ambers';
 
 import { Link }from 'react-router-dom';
 
@@ -33,6 +34,15 @@ class HomePage extends React.Component {
                 </div>
 
                 <div className='specialty-view'>
+                    <Type beerData={ambers} type='amber'/>
+                    <div className='beer-key'>
+                        <div className='beer-key-ale'>
+                            <h1 className="top">ALES</h1>
+                        </div>
+                        <div className='beer-key-lager'>
+                            <h1 className="bottom">LAGERS</h1>
+                        </div>
+                    </div>
                     <Type beerData={specialty} type='specialty'/>
                 </div>
 

@@ -106,13 +106,17 @@ class LoginPage extends React.Component {
    */
   render() {
     return (
-      <LoginForm
-        onSubmit={this.processForm}
-        onChange={this.changeUser}
-        errors={this.state.errors}
-        successMessage={this.state.successMessage}
-        user={this.state.user}
-      />
+        <div className="login-background">
+          <div className="login-form">
+            <LoginForm
+              onSubmit={this.processForm}
+              onChange={this.changeUser}
+              errors={this.state.errors}
+              successMessage={this.state.successMessage}
+              user={this.state.user}
+            />
+          </div>
+      </div>
     );
   }
 }

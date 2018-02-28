@@ -10,7 +10,6 @@ class Stars extends React.Component {
         super(props);
 
         this.state=({
-            rating: 0,
             open: false
         })
 
@@ -19,6 +18,22 @@ class Stars extends React.Component {
     componentDidMount() {
         const test = this.props.beerId;
         console.log(`This is test: ${test}`);
+        Auth.isUserAuthenticated() ? (
+            fetch(`http://localhost:3000/api/stars/${test}`, {
+                method: 'get',
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                  'Authorization': `bearer ${Auth.getToken()}`
+                },
+            }).then(res => res.json()).then(response => this.setState({rating: response.rating}))
+        ) : (this.setState({
+            value: 0
+        }))
+    }
+
+    componentShouldUpdate() {
+        const test = this.props.beerId;
+        console.log('this is a test');
         Auth.isUserAuthenticated() ? (
             fetch(`http://localhost:3000/api/stars/${test}`, {
                 method: 'get',

@@ -12,7 +12,8 @@ class Token extends React.Component {
     state = {
         open: false,
         beer: '',
-        beerId: ''
+        beerId: '',
+        rating: 0
     };
 
     handleOpen = (id) => {
@@ -27,7 +28,7 @@ class Token extends React.Component {
 
     handleClose = () => {
         this.setState({open: false});
-    };
+        };
 
     render() {
 
@@ -65,7 +66,7 @@ class Token extends React.Component {
                         <p className="beer-detail"><strong>IBU:</strong> { this.state.beer.ibuMin }-{ this.state.beer.ibuMax }</p>
                         <p className="beer-detail"><strong>SRM:</strong> { this.state.beer.srmMin }-{ this.state.beer.srmMax }</p>
                     </div>
-                    </div>
+                </div>
 
                         <p>{ this.state.beer.desc }</p>
                         <p>Best served in a { this.state.beer.glass }.</p>

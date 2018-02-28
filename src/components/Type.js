@@ -7,7 +7,7 @@ class Type extends React.Component {
 
         const { beerData, type, test } = this.props;
             return (
-                    <div>
+                    <div className="inline">
                         {beerData.map((key, index) => {
                             return (
                                 <div key={index} className={`type-${type}`}>
