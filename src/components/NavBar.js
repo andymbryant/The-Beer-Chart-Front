@@ -31,12 +31,18 @@ const Logged = (props) => (
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
-    <MenuItem primaryText="About" onClick={props.handleOpen}/>
+    <MenuItem primaryText="About" onClick={props.openAbout}/>
+    <MenuItem
+        primaryText="Data"
+        onClick={props.openData}
+        linkButton={true}
+    />
     <MenuItem
         primaryText="Sign out"
         containerElement={<Link to="/logout"></Link>}
         linkButton={true}
     />
+
     </IconMenu>
 );
 
@@ -49,17 +55,28 @@ Logged.muiName = 'IconMenu';
 class NavBar extends Component {
     state = {
         logged: this.props.logged,
-        open: false
+        openAbout: false,
+        openData: false
     };
 
-    handleOpen() {
+    openAbout() {
         this.setState({
-        open: true
+        openAbout: true
         })
     }
 
-    handleClose = () => {
-        this.setState({open: false});
+    openData() {
+        this.setState({
+        openData: true
+        })
+    }
+
+    closeAbout = () => {
+        this.setState({openAbout: false});
+    };
+
+    closeData = () => {
+        this.setState({openData: false});
     };
 
     componentDidMount() {
@@ -77,20 +94,34 @@ class NavBar extends Component {
         <div>
             <AppBar
                 title="Beer!"
-                iconElementRight={this.state.logged ? <Logged handleOpen={()=>this.handleOpen()}/> : <Login />}
+                iconElementRight={this.state.logged ? <Logged openAbout={()=>this.openAbout()} openData={()=>this.openData()}/> : <Login />}
                 showMenuIconButton={false}
                 style={{ position: "fixed" }}
             />
 
             <Dialog
                 modal={false}
-                open={this.state.open}
-                onRequestClose={this.handleClose}
+                open={this.state.openAbout}
+                onRequestClose={this.closeAbout}
             >
 
                 <div>
                     <h1>The Beer Chart</h1>
                     <h3>The best place to learn about beer.</h3>
+                </div>
+
+
+            </Dialog>
+
+            <Dialog
+                modal={false}
+                open={this.state.openData}
+                onRequestClose={this.closeData}
+            >
+
+                <div>
+                    <h1>Data</h1>
+                    <h3>This is where I will delete data.</h3>
                 </div>
 
 

@@ -74,15 +74,16 @@ class Token extends React.Component {
                         <p>Check out this featured { this.state.beer.shortName } from { this.state.beer.featuredBrewery}: <a href={`${this.state.beer.featuredLink}`} target='_blank'>{this.state.beer.featuredName}.</a></p>
 
                         <div>
-                            <div>
+                            {/* <div>
                                 <Stars beerId={this.state.beerId}/>
-                            </div>
+                            </div> */}
                             {Auth.isUserAuthenticated() ? (
 
                                 <Note disabled={false} value='Add your notes here' beerId={this.state.beerId} />
                                 ) : (
                                 <Note disabled={true} value='Login or register to add notes' />
                             )}
+
                         </div>
 
 
