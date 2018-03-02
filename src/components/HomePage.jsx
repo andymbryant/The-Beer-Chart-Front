@@ -37,10 +37,15 @@ class HomePage extends React.Component {
                     <Type beerData={ambers} type='amber'/>
                     <div className='beer-key'>
                         <div className='beer-key-ale'>
-                            <h1 className="top">ALES</h1>
+                            <div className='ale-title'>
+                                <h1 className="top">Ales</h1>
+                            </div>
                         </div>
+                        <div className='main-title'><h1>Beer</h1></div>
                         <div className='beer-key-lager'>
-                            <h1 className="bottom">LAGERS</h1>
+                            <div className='lager-title'>
+                                <h1 className="bottom">Lagers</h1>
+                            </div>
                         </div>
                     </div>
                     <Type beerData={specialty} type='specialty'/>

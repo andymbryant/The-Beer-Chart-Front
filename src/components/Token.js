@@ -79,7 +79,7 @@ class Token extends React.Component {
                             </div> */}
                             {Auth.isUserAuthenticated() ? (
 
-                                <Note disabled={false} value='Add your notes here' beerId={this.state.beerId} />
+                                <Note disabled={false} value='Add your notes here.' beerId={this.state.beerId} />
                                 ) : (
                                 <Note disabled={true} value='Login or register to add notes' />
                             )}

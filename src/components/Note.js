@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import Auth from '../modules/Auth';
-import RaisedButton from 'material-ui/RaisedButton';
+
 
 export default class Note extends React.Component {
 
@@ -9,7 +9,8 @@ export default class Note extends React.Component {
     super(props);
 
     this.state = {
-      value: this.props.value
+      value: this.props.value,
+      beerId: this.props.beerId
     };
   }
 
@@ -31,7 +32,6 @@ export default class Note extends React.Component {
   }
 
 
-
   handleChange = (event) => {
     this.setState({
       value: event.target.value,
@@ -50,16 +50,6 @@ export default class Note extends React.Component {
         })
     }
 
-    delete = (id) => {
-        fetch(`http://localhost:3000/api/deleteNote/${id}`, {
-            method: 'delete',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `bearer ${Auth.getToken()}`
-            },
-            body: JSON.stringify(this.state.value)
-        }).then(console.log('the promise returned'))
-    }
 
   render() {
     return (
@@ -72,10 +62,7 @@ export default class Note extends React.Component {
               onBlur={this.updateNote}
               disabled={this.props.disabled}
             />
-            <RaisedButton
-                onClick={()=> this.delete(this.state.beerId)}
-                label="Delete Note"
-            />
+
       </div>
     );
   }

@@ -1,12 +1,12 @@
 :root {
-    --ale-dark: #FFAB00;
+    --ale-dark: #fda810;
     --ale-light: #fecb70;
-    --lager-dark: #DD2C00;
-    --lager-light: #FFAB91;
-    --specialty-dark: #FF6D00;
-    --specialty-light: #FFCC80;
+    --lager-dark: #b10914;
+    --lager-light: #d88489;
+    --specialty-dark: #ef4800;
+    --specialty-light: #f7a37f;
     --background-dark: #fff5e2;
-    --background-light: #fdf4f5;
+    --background-light: #ffe6df;
 }
 
 body, html {
@@ -32,7 +32,7 @@ main {
 .ale-view, .lager-view, .specialty-view {
     width: 100%;
     text-align: center;
-    padding: .5%;
+    padding-top: .5%;
 }
 
 .ale-view {
@@ -45,21 +45,23 @@ main {
 .lager-view {
     background: var(--background-light);
     height: 40%;
+    padding-top: 2.5rem;
 }
 
 .specialty-view {
     background: white;
-    height: 40%;
+    height: 45%;
+    min-height: 220px;
     margin: auto;
-    background-image: linear-gradient(bottom, #fdf4f5 50%, #fff5e2 50%);
+    background-image: linear-gradient(bottom, #ffe6df 50%, #ffe6df 50%);
     background-image: -o-linear-gradient(bottom, #fdf4f5 50%, #fff5e2 50%);
     background-image: -moz-linear-gradient(bottom, #fdf4f5 50%, #fff5e2 50%);
-    background-image: -webkit-linear-gradient(bottom, #fdf4f5 50%, #fff5e2 50%);
+    background-image: -webkit-linear-gradient(bottom, #ffe6df 50%, #fff5e2 50%);
     background-image: -ms-linear-gradient(bottom, #fdf4f5 50%, #fff5e2 50%);
 }
 
 .beer-key {
-    width: 20%;
+    width: 30%;
     height: 100%;
     margin: .5%;
     display: inline-block;
@@ -67,19 +69,54 @@ main {
     min-width: 150px;
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    background: linear-gradient(bottom, #b10914, #fda810);
+    color: white;
+    text-align: center;
 }
 
 .beer-key-ale {
     width: 100%;
-    height: 50%;
-    background-color: var(--ale-dark);
+    height: 35%;
+    position: relative;
 }
 
 .beer-key-lager {
     width: 100%;
-    height: 50%;
-    background-color: var(--lager-dark);
+    height: 35%;
+    position: relative;
 }
+
+.ale-title {
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    border-bottom: white 1px solid;
+}
+
+.lager-title {
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    bottom: 0;
+    border-top: white 1px solid;
+}
+
+.main-title {
+    /* position: absolute; */
+    font-size: 40px;
+    height: 30%;
+    text-align: center;
+}
+
+.main-title h1 {
+    margin: auto;
+    vertical-align: middle;
+
+}
+
 
 .top, .bottom {
     margin: 0;
@@ -114,11 +151,17 @@ main {
     background: var(--lager-light);
     position: relative;
     bottom: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 .type-specialty, .type-amber {
     background: var(--specialty-light);
     vertical-align: center;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
 .type-header-ale, .type-header-lager, .type-header-specialty, .type-header-amber {
@@ -127,13 +170,17 @@ main {
 
 .type-header-ale {
     background: var(--ale-dark);
+    /* background-color: rgba(0,0,0,0); */
+
 }
 
 .type-header-lager {
+    /* background-color: rgba(0,0,0,0); */
     background: var(--lager-dark);
 }
 
 .type-header-specialty, .type-header-amber {
+    /* background-color: rgba(0,0,0,0); */
     background: var(--specialty-dark)
 }
 
@@ -285,11 +332,15 @@ ul {
         }
 
     .type-ale, .type-lager, .type-specialty, .type-amber {
-        height: 250px;
+        min-height: 200px;
+        margin: .5rem;
     }
 
     .ale-view {
-        min-height: 540px;
+        min-height: 450px;
+    }
+    .lager-view {
+        min-height: 300px;
     }
 }
 
@@ -315,11 +366,18 @@ ul {
   and (orientation: portrait) {
       .type-ale, .type-lager, .type-specialty, .type-amber {
           width: 30%;
-          min-height: 300px;
+          min-height: 275px;
       }
 
-      h1 {
-          font-size: 3rem;
+      .ale-view {
+          min-height: 900px;
+      }
+      .lager-view, .specialty-view {
+          min-height: 400px;
+      }
+
+      .bottom, .top {
+          font-size: 2rem;
       }
 
     .token-ale, .token-lager, .token-amber, .token-specialty {
@@ -337,11 +395,18 @@ ul {
   and (-webkit-min-device-pixel-ratio: 1) {
       .type-ale, .type-lager, .type-specialty, .type-amber {
           width: 20%;
-          min-height: 300px;
+          min-height: 240px;
       }
 
-      h1 {
-          font-size: 3rem;
+      .bottom, .top {
+          font-size: 2rem;
+      }
+
+      .ale-view {
+          min-height: 550px;
+      }
+      .lager-view, .specialty-view {
+          min-height: 400px;
       }
 
     .token-ale, .token-lager, .token-amber, .token-specialty {

@@ -12,7 +12,7 @@ class Type extends React.Component {
                             return (
                                 <div key={index} className={`type-${type}`}>
                                     <div className={`type-header-${type}`}>
-                                        <h1 className='type-title'>{key.name}</h1>
+                                    <h2 className='type-title'>{key.name}</h2>
                                     </div>
                                         <Token beers={key.beers} id={key.id} type={type} className={`token-${type}`}/>
                                 </div>

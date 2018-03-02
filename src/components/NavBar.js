@@ -9,6 +9,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import Dialog from 'material-ui/Dialog';
 import Auth from '../modules/Auth';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import { Link } from 'react-router-dom';
 
@@ -86,6 +87,16 @@ class NavBar extends Component {
             })
     }
 
+    delete = () => {
+        fetch('http://localhost:3000/api/deleteNotes', {
+            method: 'delete',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `bearer ${Auth.getToken()}`
+            },
+        })
+    }
+
 
 
     render() {
@@ -93,7 +104,7 @@ class NavBar extends Component {
     return (
         <div>
             <AppBar
-                title="Beer!"
+                title="The Beer Chart"
                 iconElementRight={this.state.logged ? <Logged openAbout={()=>this.openAbout()} openData={()=>this.openData()}/> : <Login />}
                 showMenuIconButton={false}
                 style={{ position: "fixed" }}
@@ -122,6 +133,11 @@ class NavBar extends Component {
                 <div>
                     <h1>Data</h1>
                     <h3>This is where I will delete data.</h3>
+                    <RaisedButton
+                        onClick={this.delete}
+                    >
+
+                    </RaisedButton>
                 </div>
 
 
