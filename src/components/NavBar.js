@@ -78,7 +78,9 @@ class NavBar extends Component {
     };
 
     componentDidMount() {
+        let display: none;
         if (!Auth.isUserAuthenticated())
+
             this.setState({
                 openAbout: true
             })
@@ -137,40 +139,52 @@ class NavBar extends Component {
                 onRequestClose={this.closeAbout}
                 contentStyle={aboutStyle}
             >
+
+                {!Auth.isUserAuthenticated() ? (
+                    <div className="about-wrapper">
+                        <h1>The Beer Chart</h1>
+                        <h3>The best place to learn about beer: mankind's greatest invention.</h3>
+                        <p>Beer is one of the oldest and most widely consumed drinks on the planet. In fact, humans have been making beer for thousands of years, so there's a lot to know. You've come to the right place! Here you can read up on the many beer styles, write your own reviews, and find beers to try the next time you're out and about.</p>
+                        <h3>Cheers!</h3>
+                            <div>
+                                <RaisedButton
+                                    onClick={this.closeAbout}
+                                    label='Browse'
+                                    style={buttonStyle1}
+                                >
+
+                                </RaisedButton>
+                            </div>
+                            <RaisedButton
+                                containerElement={<Link to="/login" />}
+                                linkButton={true}
+                                label={('Login')}
+                                style={buttonStyle2}
+                                buttonStyle={style1}
+                            >
+                            </RaisedButton>
+
+                            <RaisedButton
+                                containerElement={<Link to="/signup" />}
+                                linkButton={true}
+                                label={('Register')}
+                                style={buttonStyle3}
+                                buttonStyle={style2}
+
+                            >
+                            </RaisedButton>
+                        <p className="copyright">Copyright 2018 - <a href="http://www.andymbryant.com">Andy Bryant</a></p>
+                    </div>
+                ) : (
+
                 <div className="about-wrapper">
                     <h1>The Beer Chart</h1>
                     <h3>The best place to learn about beer: mankind's greatest invention.</h3>
                     <p>Beer is one of the oldest and most widely consumed drinks on the planet. In fact, humans have been making beer for thousands of years, so there's a lot to know. You've come to the right place! Here you can read up on the many beer styles, write your own reviews, and find beers to try the next time you're out and about.</p>
                     <h3>Cheers!</h3>
-                    <div>
-                        <RaisedButton
-                            onClick={this.closeAbout}
-                            label='Browse'
-                            style={buttonStyle1}
-                        >
-
-                        </RaisedButton>
-                    </div>
-                    <RaisedButton
-                        containerElement={<Link to="/login" />}
-                        linkButton={true}
-                        label={('Login')}
-                        style={buttonStyle2}
-                        buttonStyle={style1}
-                    >
-                    </RaisedButton>
-
-                    <RaisedButton
-                        containerElement={<Link to="/signup" />}
-                        linkButton={true}
-                        label={('Register')}
-                        style={buttonStyle3}
-                        buttonStyle={style2}
-
-                    >
-                    </RaisedButton>
                     <p className="copyright">Copyright 2018 - <a href="http://www.andymbryant.com">Andy Bryant</a></p>
                 </div>
+                )}
             </Dialog>
 
             <Dialog
