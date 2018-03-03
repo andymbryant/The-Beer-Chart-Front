@@ -13,6 +13,10 @@ body, html {
     height: 100%;
 }
 
+a {
+    color: var(--ale-dark);
+}
+
 main {
     font-family: 'Roboto', serif;
     height: 100%;
@@ -22,7 +26,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    min-width: 650px;
+    min-width: 670px;
 }
 
 #main {
@@ -61,12 +65,12 @@ main {
 }
 
 .beer-key {
-    width: 30%;
+    width: 25%;
     height: 100%;
-    margin: .5%;
+    margin: .5% 1rem;
     display: inline-block;
     vertical-align: middle;
-    min-width: 150px;
+    min-width: 200px;
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     background: linear-gradient(bottom, #b10914, #fda810);
@@ -92,7 +96,7 @@ main {
     height: 40px;
     width: 100%;
     position: absolute;
-    border-bottom: white 1px solid;
+    /* border-bottom: white 1px solid; */
 }
 
 .lager-title {
@@ -101,7 +105,7 @@ main {
     height: 40px;
     width: 100%;
     bottom: 0;
-    border-top: white 1px solid;
+    /* border-top: white 1px solid; */
 }
 
 .main-title {
@@ -114,9 +118,7 @@ main {
 .main-title h1 {
     margin: auto;
     vertical-align: middle;
-
 }
-
 
 .top, .bottom {
     margin: 0;
@@ -247,6 +249,11 @@ ul {
     border: black solid 1px;
 }
 
+.rating-div {
+    display: inline;
+    margin-right: 1rem;
+}
+
 .rating {
     display: inline;
     font-weight: 600;
@@ -300,7 +307,35 @@ ul {
     display: inline;
 }
 
-@media all and (max-width: 940px) {
+.copyright {
+    margin: 2rem 0 0 0;
+    font-size: .7rem;
+}
+
+/* .modal-wrapper-ale, .modal-wrapper-amber, .modal-wrapper-specialty, .modal-wrapper-lager {
+    position: relative;
+    margin: -7%;
+    padding: 7%;
+} */
+
+.modal-wrapper-ale a {
+    color: var(--ale-dark);
+}
+
+.modal-wrapper-amber a, .modal-wrapper-specialty a {
+    color: var(--specialty-dark);
+}
+
+.modal-wrapper-lager a {
+    color: var(--lager-dark);
+
+}
+
+.about-wrapper {
+    text-align: center;
+}
+
+@media all and (max-width: 1060px) {
     .token-ale, .token-lager, .token-amber, .token-specialty  {
         font-size:.7rem;
         display: block;
@@ -343,20 +378,6 @@ ul {
         min-height: 300px;
     }
 }
-
-/* Smartphones (landscape) ----------- */
-/* @media only screen and (min-width : 320px) {
-    .type-ale, .type-lager {
-        width: 20%;
-        height: 180px;
-        margin: .5%;
-        min-width: 150px;
-    }
-
-    .ale-view {
-        min-height: 400px;
-    }
-} */
 
 /* Smartphones (portrait) ----------- */
 @media only screen

@@ -38,13 +38,13 @@ class HomePage extends React.Component {
                     <div className='beer-key'>
                         <div className='beer-key-ale'>
                             <div className='ale-title'>
-                                <h1 className="top">Ales</h1>
+                                <h1 className="top">&#8679;Ales&#8679;</h1>
                             </div>
                         </div>
-                        <div className='main-title'><h1>Beer</h1></div>
+                        <div className='main-title'><h1>Beer!</h1></div>
                         <div className='beer-key-lager'>
                             <div className='lager-title'>
-                                <h1 className="bottom">Lagers</h1>
+                                <h1 className="bottom">&#8681;Lagers&#8681;</h1>
                             </div>
                         </div>
                     </div>

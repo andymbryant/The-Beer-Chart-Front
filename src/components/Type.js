@@ -1,11 +1,11 @@
 import React from 'react';
-
 import Token from './Token';
 
 class Type extends React.Component {
     render() {
 
         const { beerData, type, test } = this.props;
+
             return (
                     <div className="inline">
                         {beerData.map((key, index) => {
