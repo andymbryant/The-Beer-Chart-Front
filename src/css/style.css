@@ -26,7 +26,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    min-width: 670px;
+    min-width: 320px;
 }
 
 #main {
@@ -268,6 +268,8 @@ ul {
     background-size: cover;
     position: absolute;
     top: 0;
+    min-width: 350px;
+    overflow: hidden;
 }
 
 .login-form {
@@ -301,6 +303,8 @@ ul {
     background-size: cover;
     position: absolute;
     top: 0;
+    min-width: 350px;
+    overflow: hidden;
 }
 
 .inline {
@@ -311,12 +315,6 @@ ul {
     margin: 2rem 0 0 0;
     font-size: .7rem;
 }
-
-/* .modal-wrapper-ale, .modal-wrapper-amber, .modal-wrapper-specialty, .modal-wrapper-lager {
-    position: relative;
-    margin: -7%;
-    padding: 7%;
-} */
 
 .modal-wrapper-ale a {
     color: var(--ale-dark);
@@ -379,9 +377,88 @@ ul {
     }
 }
 
+@media all and (max-width: 662px) {
+
+    .ale-view {
+        min-height: 700px;
+    }
+    .lager-view {
+        min-height: 300px;
+    }
+}
+
+@media all and (max-width: 565px) {
+    .beer-key {
+        display: none;
+    }
+    .specialty-view {
+        height: 0;
+    }
+}
+
+@media all and (max-width: 498px) {
+    .beer-key {
+        display: none;
+    }
+
+    .ale-view {
+        min-height: 940px;
+    }
+    .lager-view {
+        min-height: 500px;
+    }
+
+    .type-ale, .type-lager, .type-specialty, .type-amber {
+        width: 100px;
+        min-height: 100px;
+        margin: .5%;
+    }
+
+    .modal-wrapper-ale p, .modal-wrapper-ale h3 {
+        font-size: .7rem;
+    }
+
+     .modal-wrapper-ale h1 {
+         font-size: 1rem;
+     }
+
+     .modal-wrapper-lager p, .modal-wrapper-lager h3 {
+         font-size: .7rem;
+     }
+
+      .modal-wrapper-lager h1 {
+          font-size: 1rem;
+      }
+
+      .modal-wrapper-specialty p, .modal-wrapper-specialty h3 {
+          font-size: .7rem;
+      }
+
+       .modal-wrapper-specialty h1 {
+           font-size: 1rem;
+       }
+
+       .modal-wrapper-amber p, .modal-wrapper-amber h3 {
+           font-size: .7rem;
+       }
+
+        .modal-wrapper-amber h1 {
+            font-size: 1rem;
+        }
+
+     .note-field {
+        font-size: .7rem !important;
+        max-width: 160px !important;
+     }
+
+}
+
+
+
+
 /* Smartphones (portrait) ----------- */
 @media only screen
-  and (min-device-width: 320px)
+  /* and (min-device-width: 320px) */
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
@@ -389,6 +466,16 @@ ul {
           width: 30%;
           min-height: 275px;
       }
+
+      .container {
+        min-height: 450px;
+        position: absolute;
+        top: 30%;
+        margin: auto;
+        width: 20%;
+        min-width: 280px;
+        left: 5%;
+    }
 
       .ale-view {
           min-height: 900px;
@@ -418,6 +505,7 @@ ul {
           width: 20%;
           min-height: 240px;
       }
+
 
       .bottom, .top {
           font-size: 2rem;

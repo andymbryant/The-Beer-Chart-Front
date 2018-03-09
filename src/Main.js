@@ -79,7 +79,7 @@ class Main extends Component {
                         primary2Color: Colors.grey500,
                         accent1Color: Colors.redA200,
                         pickerHeaderColor: Colors.darkBlack,
-                        alternateTextColor: Colors.grey400
+                        alternateTextColor: Colors.grey300
                     },
                 appBar: {
                     height: 50,

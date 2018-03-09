@@ -83,6 +83,7 @@ export default class Note extends React.Component {
                     onBlur={this.updateNote}
                     disabled={this.props.disabled}
                     underlineFocusStyle={beerModalStyle}
+                    className='note-field'
                 />
             </div>
             );
