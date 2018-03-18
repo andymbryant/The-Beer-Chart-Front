@@ -13,5 +13,6 @@ The frontend accesses the backend using authenticated ajax calls, retrieving dat
 <h3>Code Attribution</h3>
 <a href="http://www.material-ui.com/#/">Material UI</a>
 
+<h3>Screenshots</h3>
 ![Landing Page](https://github.com/andymbryant/The-Beer-Chart-Front/blob/master/TheBeerChart.jpg)
 ![Login](https://github.com/andymbryant/The-Beer-Chart-Front/blob/master/TheBeerChart_Login.jpg)
