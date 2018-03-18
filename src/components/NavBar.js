@@ -37,7 +37,7 @@ const Logged = (props) => (
     <MenuItem
         primaryText="Data"
         onClick={props.openData}
-        linkButton={true}
+        // linkButton={true}
     />
     <MenuItem
         primaryText="Sign out"

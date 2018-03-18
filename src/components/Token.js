@@ -67,10 +67,6 @@ class Token extends React.Component {
             }
         }
 
-        if (this.state.beer === '' && this.state.open === true) {
-            console.log('the state is empty')
-        }
-
         return (
         <div>
             <ul>
