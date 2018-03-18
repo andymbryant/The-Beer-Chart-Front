@@ -77,7 +77,7 @@ export default class Note extends React.Component {
                 </div>
                 <TextField
                     id="text-field-controlled"
-                    placeHolder={this.props.value}
+                    placeholder={this.state.value}
                     value={this.state.value}
                     onChange={this.handleChange}
                     onBlur={this.updateNote}

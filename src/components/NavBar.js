@@ -33,16 +33,16 @@ const Logged = (props) => (
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
-    <MenuItem primaryText="About" onClick={props.openAbout}/>
+    <MenuItem primaryText="About" onClick={props.openabout}/>
     <MenuItem
         primaryText="Data"
-        onClick={props.openData}
+        onClick={props.opendata}
         // linkButton={true}
     />
     <MenuItem
         primaryText="Sign out"
         containerElement={<Link to="/logout"></Link>}
-        linkButton={true}
+        // linkButton={true}
     />
 
     </IconMenu>
@@ -53,35 +53,35 @@ Logged.muiName = 'IconMenu';
 class NavBar extends Component {
     state = {
         logged: this.props.logged,
-        openAbout: false,
-        openData: false
+        openabout: false,
+        opendata: false
     };
 
-    openAbout() {
+    openabout() {
         this.setState({
-        openAbout: true
+        openabout: true
         })
     }
 
-    openData() {
+    opendata() {
         this.setState({
-        openData: true
+        opendata: true
         })
     }
 
     closeAbout = () => {
-        this.setState({openAbout: false});
+        this.setState({openabout: false});
     };
 
     closeData = () => {
-        this.setState({openData: false});
+        this.setState({opendata: false});
     };
 
     componentDidMount() {
         if (!Auth.isUserAuthenticated())
 
             this.setState({
-                openAbout: true
+                openabout: true
             })
     }
 
@@ -127,14 +127,14 @@ class NavBar extends Component {
         <div>
             <AppBar
                 title="The Beer Chart"
-                iconElementRight={this.state.logged ? <Logged openAbout={()=>this.openAbout()} openData={()=>this.openData()}/> : <Login />}
+                iconElementRight={this.state.logged ? <Logged openabout={()=>this.openabout()} opendata={()=>this.opendata()}/> : <Login />}
                 showMenuIconButton={false}
                 style={{ position: "fixed" }}
             />
 
             <Dialog
                 modal={false}
-                open={this.state.openAbout}
+                open={this.state.openabout}
                 onRequestClose={this.closeAbout}
                 contentStyle={aboutStyle}
             >
@@ -156,7 +156,7 @@ class NavBar extends Component {
                             </div>
                             <RaisedButton
                                 containerElement={<Link to="/login" />}
-                                linkButton={true}
+                                // linkButton={true}
                                 label={('Login')}
                                 style={buttonStyle2}
                                 buttonStyle={style1}
@@ -165,7 +165,7 @@ class NavBar extends Component {
 
                             <RaisedButton
                                 containerElement={<Link to="/signup" />}
-                                linkButton={true}
+                                // linkButton={true}
                                 label={('Register')}
                                 style={buttonStyle3}
                                 buttonStyle={style2}
@@ -188,7 +188,7 @@ class NavBar extends Component {
 
             <Dialog
                 modal={false}
-                open={this.state.openData}
+                open={this.state.opendata}
                 onRequestClose={this.closeData}
                 contentStyle={aboutStyle}
             >
