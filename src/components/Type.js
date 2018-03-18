@@ -4,7 +4,7 @@ import Token from './Token';
 class Type extends React.Component {
     render() {
 
-        const { beerData, type, test } = this.props;
+        const { beerData, type } = this.props;
 
             return (
                     <div className="inline">

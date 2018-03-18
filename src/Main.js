@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {pink500} from 'material-ui/styles/colors';
+
 import * as Colors from 'material-ui/styles/colors';
 
 // import routes from './routes.js';
 import {
     BrowserRouter as Router,
     Route,
-    Link,
-    Redirect,
-    withRouter
+    Redirect
 } from 'react-router-dom';
 
 import HomePage from './components/HomePage.jsx';
@@ -23,18 +21,18 @@ import Auth from './modules/Auth';
 // remove tap delay, essential for MaterialUI to work properly
 injectTapEventPlugin();
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route {...rest} render={props => (
-        Auth.isUserAuthenticated() ? (
-            <Component {...props} {...rest} />
-        ) : (
-        <Redirect to={{
-            pathname: '/',
-            state: { from: props.location }
-        }}/>
-        )
-    )}/>
-)
+// const PrivateRoute = ({ component: Component, ...rest }) => (
+//     <Route {...rest} render={props => (
+//         Auth.isUserAuthenticated() ? (
+//             <Component {...props} {...rest} />
+//         ) : (
+//         <Redirect to={{
+//             pathname: '/',
+//             state: { from: props.location }
+//         }}/>
+//         )
+//     )}/>
+// )
 
 const LoggedOutRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (

@@ -1,7 +1,6 @@
 import React from 'react';
 import Auth from '../modules/Auth';
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 
 import Note from './Note';

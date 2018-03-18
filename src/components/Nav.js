@@ -1,13 +1,11 @@
 import React from 'react';
 
 import { Link }from 'react-router-dom';
-import Auth from '../modules/Auth';
 
-import LogoutFunction from '../containers/LogoutFunction'
 
 class Nav extends React.Component {
     render() {
-        const { button, message } = this.props;
+        const { button } = this.props;
 
             return (
                     <div className="nav-container">
@@ -19,5 +17,5 @@ class Nav extends React.Component {
             )
         }
 }
- 
+
 export default Nav;

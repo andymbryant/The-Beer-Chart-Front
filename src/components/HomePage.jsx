@@ -1,17 +1,14 @@
 import React from 'react';
-import { Card, CardTitle, CardText } from 'material-ui/Card';
+
 import Auth from '../modules/Auth';
 
 import Type from './Type';
-import Nav from './Nav';
 import NavBar from './NavBar';
 
 import lagers from '../beers/lagers';
 import ales from '../beers/ales';
 import specialty from '../beers/specialty';
 import ambers from '../beers/ambers';
-
-import { Link }from 'react-router-dom';
 
 class HomePage extends React.Component {
 
